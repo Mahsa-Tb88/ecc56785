@@ -1,0 +1,62 @@
+.call {
+  .dot {
+    height: 1px;
+    width: 100%;
+    background-color: rgb(239, 239, 239);
+  }
+  .text {
+    font-size: 10px;
+    color: rgb(198, 198, 198);
+  }
+  .icon-arrow {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    font-size: 12px;
+  }
+  .icon-phone {
+    color: #bcbcbc;
+    font-size: 18px;
+  }
+  .text-small {
+    color: #a2a2a2;
+    font-size: 10px;
+  }
+  .time {
+    color: #a2a2a2;
+    font-size: 12px;
+    padding-left: 3px;
+  }
+  .time-section {
+    transition: all 0.3s ease-in-out;
+  }
+  .time-section:hover {
+    background-color: #f95a2c;
+    cursor: pointer;
+  }
+  .time-section:hover .time {
+    color: #fff !important;
+    border-color: #fff !important;
+  }
+  .time-section:hover .threeDotIcon {
+    color: #fff !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .call {
+    .text {
+      font-size: 15px;
+    }
+    .icon-arrow {
+      left: 9px;
+      font-size: 20px;
+    }
+    .icon-phone {
+      font-size: 26px;
+    }
+    .text-small {
+      font-size: 18px;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+.DetailsOfCall {
+  .detail {
+    background-color: #fbfbfa;
+    .text {
+      font-size: 14px;
+      color: rgb(69, 68, 68);
+    }
+    .text-secondary {
+      font-size: 15px;
+    }
+    .callType {
+      height: 8px;
+      width: 8px;
+      border-radius: 100%;
+      display: inline-block;
+    }
+    .date,
+    .duration {
+      color: rgb(176, 173, 173);
+      font-size: 12px;
+    }
+    .btn {
+      font-size: 12px;
+    }
+    .archivedStatus,
+    .UnarchivedStatus {
+      background-color: #2acaf0;
+      height: 8px;
+      width: 8px;
+      border-radius: 100%;
+      display: inline-block;
+      font-size: 12px;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.archive {
+  background-color: #fdfdfc;
+  cursor: pointer;
+
+  .unArchivedBtn {
+    padding: 5px 8px;
+    font-size: 12px;
+    border: none;
+  }
+  .unArchivedBtn:hover {
+    background-color: rgb(102, 103, 105) !important;
+  }
+  .message{
+    font-size: 13px;
+    color: rgb(133, 133, 133);
+  }
+}
+
+@media (min-width: 768px) {
+  .archive {
+    .unArchivedBtn {
+      padding: 7px 10px;
+      font-size: 17px;
+    }
+    .message{
+      font-size: 18px;
+    }
+  }
+}
