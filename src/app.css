@@ -3,7 +3,7 @@
   margin: 0 auto;
 }
 .app {
-  height: 400px;
+  height: 600px;
   width: 75%;
   background-color: #fbfbfa;
 
@@ -23,7 +23,7 @@
   .wrapper {
     width: 50%;
     .app {
-      height: 600;
+      height: 800;
     }
   }
 }
