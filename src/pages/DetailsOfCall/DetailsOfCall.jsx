@@ -38,8 +38,6 @@ export default function DetailsOfCall() {
     durationCall = hour + "h " + min + "m ";
   }
 
-  console.log("duratinCall finall", durationCall);
-
   //First get detail of call using params and route API
   const params = useParams();
   useEffect(() => {
@@ -100,14 +98,14 @@ export default function DetailsOfCall() {
           <div className="mb-2">
             <span
               className={
-                detailCall.call_type
+                detailCall.call_type == "answered"
                   ? "bg-success callType"
                   : "bg-danger callType"
               }
             ></span>
             <span
               className={
-                detailCall.call_type
+                detailCall.call_type == "answered"
                   ? "text-success ms-1 fw-semibold"
                   : "text-danger ms-1 fs-semibold"
               }
