@@ -71,10 +71,11 @@ export default function ArchiveCalls() {
                 <h3 className="message">There are no archived calls.</h3>
               </div>
             ) : (
-              archiveList.map((call) => {
+              archiveList.map((call, i) => {
+                let preCall = i > 0 ? archiveList[i - 1] : call;
                 return (
                   <div key={call.id}>
-                    <Call call={call} />
+                    <Call call={call} preCall={preCall} />
                   </div>
                 );
               })

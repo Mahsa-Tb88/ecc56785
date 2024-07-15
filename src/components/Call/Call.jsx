@@ -7,13 +7,15 @@ import { PiDotsThreeVerticalThin } from "react-icons/pi";
 import { Link } from "react-router-dom";
 
 export default function Call({ call, preCall }) {
+  console.log(call, preCall);
+
   function getDateOfCall(date) {
     const dateOfCall = new Date(date);
-    // console.log(",,,", dateOfCall);
     const day = dateOfCall.getDate();
     const options = { month: "long" };
     const month = new Intl.DateTimeFormat("en-US", options).format(dateOfCall);
     const year = dateOfCall.getFullYear();
+
     const formattedTime = dateOfCall.toLocaleString("en-US", {
       hour: "numeric",
       minute: "numeric",
@@ -21,17 +23,20 @@ export default function Call({ call, preCall }) {
     });
     const arrayOfTime = formattedTime.split(" ");
 
-    return { day, month, year, arrayOfTime };
+    return { day, month, year, formattedTime, arrayOfTime };
   }
 
-  const dateOfCurrentCall = getDateOfCall(call.created_at);
-  const dateCuurent =
-    dateOfCurrentCall.day + dateOfCurrentCall.month + dateOfCurrentCall.year;
-  const dateOfPrevCall = getDateOfCall(preCall.created_at);
-  const datePrev =
-    dateOfPrevCall.day + dateOfPrevCall.month + dateOfPrevCall.year;
-  const phoneNumber = call.from == 2 ? call.to : call.from;
+  let dateOfCurrentCall, dateCuurent, dateOfPrevCall, datePrev, phoneNumber;
 
+  if ((call, preCall)) {
+    dateOfCurrentCall = getDateOfCall(call.created_at);
+    dateCuurent =
+      dateOfCurrentCall.day + dateOfCurrentCall.month + dateOfCurrentCall.year;
+    dateOfPrevCall = getDateOfCall(preCall.created_at);
+    datePrev = dateOfPrevCall.day + dateOfPrevCall.month + dateOfPrevCall.year;
+    phoneNumber = call.from == 2 ? call.to : call.from;
+  }
+  console.log(dateOfCurrentCall);
   return (
     <div className="call pb-1 pb-md-3  mb-2 ">
       {dateCuurent !== datePrev && (
@@ -90,9 +95,9 @@ export default function Call({ call, preCall }) {
           <span className="fs-5 threeDotIcon">
             <PiDotsThreeVerticalThin />
           </span>
-          <span className="time me-1">{dateOfCurrentCall.arrayOfTime[0]}</span>
+          <span className="time me-1">{dateOfCurrentCall?.arrayOfTime[0]}</span>
           <span className="time border border-end-0  rounded-start">
-            {dateOfCurrentCall.arrayOfTime[1]}
+            {dateOfCurrentCall?.arrayOfTime[1]}
           </span>
         </Link>
       </div>

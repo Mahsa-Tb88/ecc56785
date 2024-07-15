@@ -81,10 +81,11 @@ export default function Inbox() {
             </div>
           ) : (
             <div className="">
-              {unArchivedCalls.map((call) => {
+              {unArchivedCalls.map((call, i) => {
+                let preCall = i > 0 ? unArchivedCalls[i - 1] : call;
                 return (
                   <div key={call.id}>
-                    <Call call={call} />
+                    <Call call={call} preCall={preCall} />
                   </div>
                 );
               })}
