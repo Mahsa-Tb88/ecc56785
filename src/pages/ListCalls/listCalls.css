@@ -1,3 +1,12 @@
 .listCalls {
   background-color: #fbfbfa;
+   .dot {
+    height: 1px;
+    width: 100%;
+    background-color: rgb(239, 239, 239);
+  }
+  .text {
+    font-size: 10px;
+    color: rgb(186, 184, 184);
+  }
 }
