@@ -12,7 +12,7 @@ export default function DetailsOfCall() {
   let day, month, year, formattedTime;
   if (detailCall.created_at) {
     const dateOfCall = new Date(detailCall.created_at);
-    day = dateOfCall.getDay();
+    day = dateOfCall.getDate();
     const options = { month: "long" };
     month = new Intl.DateTimeFormat("en-US", options).format(dateOfCall);
     year = dateOfCall.getFullYear();
