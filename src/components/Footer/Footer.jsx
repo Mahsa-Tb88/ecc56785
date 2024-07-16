@@ -109,7 +109,7 @@ export default function Footer() {
                 <span>
                   <PiRadioButtonDuotone className="icon-dot icon" />
                 </span>
-                {listCallsMissed.length > 0 && (
+                {listCallsVoiceMails.length > 0 && (
                   <span className="NumberOfMissCall position-absolute text-white rounded-circle d-flex justify-content-center align-items-center">
                     {listCallsVoiceMails.length}
                   </span>
