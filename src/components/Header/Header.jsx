@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./header.css";
 import { getAllCalls } from "../../utility/api";
+import Menu from "../Menu/Menu";
+import HeaderTop from "../HeaderTop/HeaderTop";
 
 export default function Header() {
   const [listCalls, setListCalls] = useState([]);
@@ -11,7 +13,7 @@ export default function Header() {
     const timeOut = setTimeout(fetchAllCalls, 20);
     return () => clearTimeout(timeOut);
   }, []);
-//fetch list of calls for getting number of calls
+  //fetch list of calls for getting number of calls
   async function fetchAllCalls() {
     setIsLoading(true);
     setError(false);
@@ -24,23 +26,17 @@ export default function Header() {
     }
   }
   return (
-    <div className="header px-3 position-relative">
+    <div className="header position-fixed">
       {isLoading ? (
         <span className="d-flex justify-content-center">loading</span>
       ) : error ? (
-        <span className="d-flex justify-content-center text-danger">{error}</span>
+        <span className="d-flex justify-content-center text-danger">
+          {error}
+        </span>
       ) : (
         <div>
-          <div className="d-flex align-items-center justify-content-center">
-            <h2 className=" title py-2 mb-0  ">
-              ({listCalls.length}) Aircall Phone
-            </h2>
-          </div>
-          <div className="d-flex justify-content-start align-items-center position-absolute container-circle">
-            <span className="circle rounded-circle redCircle"></span>
-            <span className=" circle rounded-circle yellowCircle mx-1 mx-md-3"></span>
-            <span className=" circle rounded-circle greenCircle"></span>
-          </div>
+          <HeaderTop listCalls={listCalls} />
+          <Menu />
         </div>
       )}
     </div>

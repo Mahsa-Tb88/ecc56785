@@ -1,3 +1,7 @@
+.footer-container {
+  width: 100%;
+  bottom: 0;
+}
 .footer {
   height: 2.5rem;
   border: 1px solid #dddddd;
@@ -60,10 +64,7 @@
     color: #4a4949;
   }
 }
-.footer-container {
-  width: 75%;
-  bottom: 0;
-}
+
 @media (min-width: 768px) {
   .footer {
     height: 4rem;

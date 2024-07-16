@@ -1,6 +1,9 @@
 .header {
-  background-image: linear-gradient(#e6e6e6, #d8d8d8);
-  color: #2d2d2d;
+  z-index: 2;
+  width: 84%;
+  margin: 0 auto;
+  height: 9rem;
+
   .title {
     font-size: 0.8rem;
   }
@@ -26,6 +29,8 @@
 
 @media (min-width: 768px) {
   .header {
+    width: 49%;
+    height: 13rem;
     .title {
       font-size: 1.5rem;
     }

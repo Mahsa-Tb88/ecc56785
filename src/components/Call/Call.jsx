@@ -36,7 +36,6 @@ export default function Call({ call, preCall }) {
     datePrev = dateOfPrevCall.day + dateOfPrevCall.month + dateOfPrevCall.year;
     phoneNumber = call.from == 2 ? call.to : call.from;
   }
-  console.log(dateOfCurrentCall);
   return (
     <div className="call pb-1 pb-md-3  mb-2 ">
       {dateCuurent !== datePrev && (
@@ -84,8 +83,10 @@ export default function Call({ call, preCall }) {
             </span>
           </div>
           <div className="d-flex flex-column justify-content-center">
-            <span>{phoneNumber}</span>
-            <span className=" text-small">try to call on {phoneNumber}</span>
+            <span className="phoneNumber fw-semibold">{phoneNumber}</span>
+            <span className=" text-small phoneNumber">
+              try to call on {phoneNumber}
+            </span>
           </div>
         </div>
         <Link
