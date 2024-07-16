@@ -57,7 +57,7 @@ export default function ArchiveCalls() {
         <div>
           <div className="d-flex align-items-center ">
             <div
-              className="text-left ms-2 ms-md-3 mb-4 mb-md-0 mt-3"
+              className="text-left ms-2 ms-md-3 my-3"
               onClick={handlerUnarchive}
             >
               <button className=" unArchivedBtn bg-secondary text-white rounded-1 fw-semibold">

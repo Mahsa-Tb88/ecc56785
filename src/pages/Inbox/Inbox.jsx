@@ -68,7 +68,7 @@ export default function Inbox() {
       ) : (
         <div>
           <div
-            className="text-left ms-2 ms-md-3 mb-4 mb-md-0 mt-md-4 mt-2"
+            className="text-left ms-2 ms-md-3  my-md-4 mt-2 mb-4"
             onClick={handlerToArchive}
           >
             <button className="archivedBtn bg-secondary border-0 text-white rounded-1 fw-semibold">
