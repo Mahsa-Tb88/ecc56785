@@ -5,7 +5,6 @@
 .footer {
   height: 2.5rem;
   border: 1px solid #dddddd;
-  border-left: 0;
   margin: 0 auto;
 
   background-color: #fff;
@@ -20,7 +19,7 @@
     width: 12px;
     display: inline-block;
     font-size: 10px;
-    right: 0;
+    right: 5px;
     top: 2px;
   }
   .icon-grid {

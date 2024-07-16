@@ -11,7 +11,8 @@ import { getAllCalls } from "../../utility/api";
 export default function Footer() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [listCalls, setListCalls] = useState([]);
+  const [listCallsMissed, setListCallsMissed] = useState([]);
+  const [listCallsVoiceMails, setListCallsVoiceMails] = useState([]);
 
   //fetch all calls to show number of miss calls in bottom menu
   useEffect(() => {
@@ -23,11 +24,24 @@ export default function Footer() {
     setIsLoading(true);
     setError(false);
     const result = await getAllCalls();
-    if (result) {
-      const filteredCall = result.filter((call) => {
-        call.call_type !== "answered" && call.direction == "outbound";
+
+    if (result.length >= 0) {
+      const filteredCallVoiceMail = result.filter((call) => {
+        return call.call_type == "voicemail" && call.direction == "inbound";
       });
-      setListCalls(filteredCall);
+      setListCallsVoiceMails(filteredCallVoiceMail);
+      setIsLoading(false);
+    } else {
+      setError("Error Connection");
+    }
+
+    if (result.length >= 0) {
+      const filteredCallMiss = result.filter((call) => {
+        return call.call_type == "missed" && call.direction == "inbound";
+      });
+
+      setListCallsMissed(filteredCallMiss);
+
       setIsLoading(false);
     } else {
       setError("Error Connection");
@@ -54,9 +68,9 @@ export default function Footer() {
                 <div>
                   <MdPhone className="icon-phone icon" />
                 </div>
-                {listCalls.length > 0 && (
+                {listCallsMissed.length > 0 && (
                   <span className="NumberOfMissCall position-absolute  text-white rounded-circle d-flex justify-content-center align-items-center">
-                    {listCalls.length}
+                    {listCallsMissed.length}
                   </span>
                 )}
               </NavLink>
@@ -90,9 +104,16 @@ export default function Footer() {
             <div className="link">
               <NavLink
                 to="home"
-                className="d-flex justify-content-center align-items-center"
+                className="d-flex justify-content-between align-items-center position-relative"
               >
-                <PiRadioButtonDuotone className="icon-dot icon" />
+                <span>
+                  <PiRadioButtonDuotone className="icon-dot icon" />
+                </span>
+                {listCallsMissed.length > 0 && (
+                  <span className="NumberOfMissCall position-absolute text-white rounded-circle d-flex justify-content-center align-items-center">
+                    {listCallsVoiceMails.length}
+                  </span>
+                )}
               </NavLink>
             </div>
           </div>
