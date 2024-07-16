@@ -7,8 +7,8 @@ import { PiDotsThreeVerticalThin } from "react-icons/pi";
 import { Link } from "react-router-dom";
 
 export default function Call({ call, preCall }) {
-  console.log(call, preCall);
-
+  
+  //get Call info
   function getDateOfCall(date) {
     const dateOfCall = new Date(date);
     const day = dateOfCall.getDate();
